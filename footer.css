@@ -1,0 +1,14 @@
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }
+
+h2{
+    margin-left: 5%;
+}
+.right-buttons{
+    display: flex;
+    margin-left: 2%;
+    right: auto;
+}
