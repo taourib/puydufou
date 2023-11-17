@@ -6,7 +6,7 @@
 <title>PuyDuFou</title>
 <meta http-equiv="Content-Language" content="fr">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="util/styles.css" rel="stylesheet" type="text/css">
+<link href="styles/global.css" rel="stylesheet" type="text/css">
 </head>
 <body >
 
@@ -48,3 +48,10 @@
   </div><!-- /.container-fluid -->
 </nav>
 </header><!-- header role="banner" -->
+
+<style>
+  body
+  {
+    background:var(--second-color);
+  }
+</style>
