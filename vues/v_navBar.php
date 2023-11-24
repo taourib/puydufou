@@ -9,49 +9,63 @@
 <link href="styles/global.css" rel="stylesheet" type="text/css">
 </head>
 <body >
-
-<div id="bandeau">
-<!-- Images En-tête -->
-<!-- <img src="images/menuGauche.gif"	alt="Choisir" title="Choisir"/>-->
-<img src="images/logo.png"	alt="puydufou" title="puydufou"/>
-</div>
-<!--  Menu haut -->
-<ul id="menu">
-	<li><a href="index.php?uc=accueil"> Accueil </a></li>
-	<!-- <li><a href="index.php?uc=voirProduits&action=voirCategories"> Voir le catalogue de fleurs </a></li>
-	<li><a href="index.php?uc=gererPanier&action=voirPanier"> Voir son panier </a></li>
-	<li><a href="index.php?uc=administrer&action=seconnecter"> Administrer </a></li> -->
-</ul>
-
-<header role="banner">
-  <img id="logo-main" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/32877/logo-thing.png" width="200" alt="Logo Thing main logo">
-<nav id="navbar-primary" class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-primary-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="navbar-primary-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-</header><!-- header role="banner" -->
-
+ <header>
+      <nav class="navbar">
+      	<ul class="navbar-nav">
+        	<a href="index.html" class="icon"><img class="logo" src="images/#"></a>
+        		<li class="nav-item">
+          			<a class="nav-link" href="#">Planning</a>
+        		</li>
+        		<li class="nav-item">
+          			<a class="nav-link" href="#">Connexion</a>
+        		</li>
+        		<li class="nav-item">
+          			<a class="nav-link" href="#">Inscription</a>
+        		</li>
+      	</ul>
+    </nav>
+</header>
+</body>
 <style>
-  body
-  {
-    background:var(--second-color);
-  }
+  .navbar-nav {
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #F0F2EF;
+    height: 90px;
+    border-bottom: 1px solid black;
+}
+  
+.nav-item{
+    float: right;
+    margin-left: 2%;
+    margin-top: 15px;
+}
+
+.icon{
+    float: left;
+    margin-left: 2%;
+    margin-top: 6px;
+}
+  
+.logo{
+    width: 80px; 
+    height: 80px; 
+}
+
+.nav-link {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 50px;
+    background-color: #F0F2EF;
+    transition: background-color 0.5s, color 1.0s;
+}
 </style>
