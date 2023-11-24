@@ -15,11 +15,15 @@
 
 <style>
 footer {
+    margin-left: 25%;
+    width: 50%;
+    position: absolute;
     align-items: center;
     display: flex;
     justify-content: center;
     text-align: center;
     gap: 3.33em; 
+    bottom:0;  /* on le colle en bas */
 }
 .right-buttons{
     display: flex;
