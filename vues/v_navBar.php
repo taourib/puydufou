@@ -12,7 +12,7 @@
  <header>
       <nav class="navbar">
       	<ul class="navbar-nav">
-        	<a href="index.html" class="icon"><img class="logo" src="images/#"></a>
+        	<a href="index.html" class="icon"><img class="logo" src="images/logo.svg"></a>
         		<li class="nav-item">
           			<a class="nav-link" href="#">Planning</a>
         		</li>
@@ -27,6 +27,12 @@
 </header>
 </body>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Open+Sans&display=swap');
+    *{
+        font-family: 'Inter', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+    }
+
   .navbar-nav {
     position: fixed;
     z-index: 0;
@@ -54,8 +60,9 @@
 }
   
 .logo{
-    width: 80px; 
-    height: 80px; 
+    width: 200px; 
+    height: 80px;
+    margin-top: 0; 
 }
 
 .nav-link {
@@ -72,3 +79,4 @@ body{
   background:var(--second-color);
 }
 </style>
+</html>
