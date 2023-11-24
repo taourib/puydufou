@@ -44,6 +44,7 @@
           Règlement Général sur la Protection des Données 2016/679 du 27 avril 2016 («RGPD»).
       </a>
     </div> 
+    <br><br><br>
 
   </div>
 </div>
@@ -58,4 +59,28 @@
   align-self: stretch;
   padding: 10%; 
   }
+<<<<<<< HEAD
 </style>
+=======
+
+#container-contact-text
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.contact-text-fields{
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  border: 1px solid #000;
+  background: #FFF;
+  box-shadow: 32px 16px 8px 0px rgba(0, 0, 0, 0.25);
+  padding: 1em;
+}
+</style>
+>>>>>>> 668ac10e0f642d95cffb7cca7e823abf27bc1d17

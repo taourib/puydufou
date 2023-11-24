@@ -15,14 +15,22 @@
 
 <style>
 footer {
+<<<<<<< HEAD
     margin-left: 25%;
     width: 50%;
     position: absolute;
+=======
+    background-color: #F0F2EF;
+    width: 100%;
+    height: 8%;
+    position: fixed;
+>>>>>>> 668ac10e0f642d95cffb7cca7e823abf27bc1d17
     align-items: center;
     display: flex;
     justify-content: center;
     text-align: center;
     gap: 3.33em; 
+    bottom:0;  /* on le colle en bas */
 }
 .right-buttons{
     display: flex;

@@ -14,6 +14,7 @@
       	<ul class="navbar-nav">
         	<a href="index.php" class="icon"><img class="logo" src="images/logo.svg"></a>
         		<li class="nav-item">
+<<<<<<< HEAD
           			<a class="nav-link" href="#">Planning</a>
         		</li>
         		<li class="nav-item">
@@ -21,18 +22,38 @@
         		</li>
         		<li class="nav-item">
           			<a class="nav-link" href="index.php?uc=connection&action=inscription">Inscription</a>
+=======
+          			<a class="nav-link" href="#"><strong>Planning</strong></a>
+        		</li>
+        		<li class="nav-item">
+          			<a class="nav-link" href="#"><strong>Connexion</strong></a>
+        		</li>
+        		<li class="nav-item">
+          			<a class="nav-link" href="#"><strong>Inscription</strong></a>
+>>>>>>> 668ac10e0f642d95cffb7cca7e823abf27bc1d17
         		</li>
       	</ul>
     </nav>
 </header>
 </body>
 <style>
+<<<<<<< HEAD
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Open+Sans&display=swap');
+=======
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Open+Sans:wght@300&display=swap');
+>>>>>>> 668ac10e0f642d95cffb7cca7e823abf27bc1d17
     *{
         font-family: 'Inter', sans-serif;
         font-family: 'Open Sans', sans-serif;
     }
 
+<<<<<<< HEAD
+=======
+    body{
+        margin: 0;
+    }
+
+>>>>>>> 668ac10e0f642d95cffb7cca7e823abf27bc1d17
   .navbar-nav {
     position: fixed;
     z-index: 0;
@@ -42,6 +63,10 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+<<<<<<< HEAD
+=======
+    background-color: #F0F2EF;
+>>>>>>> 668ac10e0f642d95cffb7cca7e823abf27bc1d17
     height: 90px;
     border-bottom: 1px solid black;
 }
@@ -73,9 +98,17 @@
     border-radius: 50px;
     background-color: #F0F2EF;
     transition: background-color 0.5s, color 1.0s;
+<<<<<<< HEAD
+=======
+    font-size: medium;
+>>>>>>> 668ac10e0f642d95cffb7cca7e823abf27bc1d17
 }
 body{
   background:var(--second-color);
 }
 </style>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 668ac10e0f642d95cffb7cca7e823abf27bc1d17
