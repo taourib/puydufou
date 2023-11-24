@@ -68,4 +68,7 @@
     background-color: #F0F2EF;
     transition: background-color 0.5s, color 1.0s;
 }
+body{
+  background:var(--second-color);
+}
 </style>
