@@ -15,6 +15,9 @@
 
 <style>
 footer {
+    margin-left: 25%;
+    width: 50%;
+    position: absolute;
     align-items: center;
     display: flex;
     justify-content: center;
