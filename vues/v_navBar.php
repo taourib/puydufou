@@ -12,25 +12,29 @@
  <header>
       <nav class="navbar">
       	<ul class="navbar-nav">
-        	<a href="index.html" class="icon"><img class="logo" src="images/logo.svg"></a>
+        	<a href="index.php" class="icon"><img class="logo" src="images/logo.svg"></a>
         		<li class="nav-item">
-          			<a class="nav-link" href="#">Planning</a>
+          			<a class="nav-link" href="#"><strong>Planning</strong></a>
         		</li>
         		<li class="nav-item">
-          			<a class="nav-link" href="#">Connexion</a>
+          			<a class="nav-link" href="#"><strong>Connexion</strong></a>
         		</li>
         		<li class="nav-item">
-          			<a class="nav-link" href="#">Inscription</a>
+          			<a class="nav-link" href="#"><strong>Inscription</strong></a>
         		</li>
       	</ul>
     </nav>
 </header>
 </body>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Open+Sans&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Open+Sans:wght@300&display=swap');
     *{
         font-family: 'Inter', sans-serif;
         font-family: 'Open Sans', sans-serif;
+    }
+
+    body{
+        margin: 0;
     }
 
   .navbar-nav {
@@ -74,6 +78,7 @@
     border-radius: 50px;
     background-color: #F0F2EF;
     transition: background-color 0.5s, color 1.0s;
+    font-size: medium;
 }
 body{
   background:var(--second-color);
