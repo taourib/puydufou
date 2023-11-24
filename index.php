@@ -3,6 +3,7 @@
 session_start();
 // inclusion en une seule fois du fichier des fonctions et du modèle
 require_once("util/class.puyDuFou.inc.php");
+$pdo = PDOpuyDuFou::getPDOpuyDuFou();
 
 include("vues/v_navBar.php") ;
 
@@ -19,8 +20,8 @@ switch($uc)
 		//{include("controleurs/c_gestionInscription.php");break;}
 	case 'profil' :
 		//{ include("controleurs/c_profil.php");break; }
-	case 'connexion.' :
-		//{ include("controleurs/c_connexion.php");break; }
+	case 'connexion' :
+		{ include("controleurs/c_connexion.php");break; }
 }
 include("vues/v_footer.php") ;
 ?>

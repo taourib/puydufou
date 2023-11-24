@@ -1,15 +1,15 @@
 <?php
 // $action : variable d'aiguillage
 if(!isset($_REQUEST['action']))
-     $action = 'accueil';
+     $action = 'accueilPage';
 else
 	$action = $_REQUEST['action'];
 
 switch($action)
 {
-	case '':
+	case ('accueilPage') :
 	{
-		include("vues/v_connection.php");
+		include("vues/v_accueil.php");
 		break;
 	}
 	case 'contact':
