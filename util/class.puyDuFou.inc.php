@@ -42,7 +42,7 @@ class PDOpuyDuFou
 		return $lesLignes;
 	}
 
-	public function getInformationsConnexion($adresse_mail,$mdp)
+	public function getInfoConnexion($adresse_mail,$mdp)
 	{
 		$req = "select Id_profil, nom, prenom, is_admin from profil where mdp = '$mdp' and adresse_mail = '$adresse_mail'";
 		$res = PDOpuyDuFou::$monPdo->query($req);
@@ -50,6 +50,27 @@ class PDOpuyDuFou
 		return $lesLignes;
 	}	
 
+	public function getInfoMail($Id_profil)
+	{
+		$req = "SELECT adresse_mail FROM profil WHERE Id_profil = '$Id_profil'";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+		$ligne = $res->fetch(PDO::FETCH_ASSOC);
+    	return $ligne['adresse_mail'];
+	}	
+
+	public function getInfoMdp($Id_profil)
+	{
+		$req = "SELECT mdp FROM profil WHERE Id_profil = '$Id_profil'";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+		$ligne = $res->fetch(PDO::FETCH_ASSOC);
+    	return $ligne['mdp'];
+	}	
+
+	public function modifProfil($Id_profil,$Nom,$Prenom,$mdpN,$Mail)
+	{
+		$req = "UPDATE profil SET nom = '$Nom', prenom = '$Prenom', mdp = '$mdpN', adresse_mail = '$Mail' WHERE Id_profil = '$Id_profil'";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
 }
 
 

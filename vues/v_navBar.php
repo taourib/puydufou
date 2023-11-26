@@ -13,15 +13,41 @@
       <nav class="navbar">
       	<ul class="navbar-nav">
         	<a href="index.php?uc=accueil&action=accueilPage" class="icon"><img class="logo" src="images/logo.svg"></a>
-        		<li class="nav-item">
-          			<a class="nav-link" href="#">Planning</a>
-        		</li>
-        		<li class="nav-item">
-          			<a class="nav-link" href="index.php?uc=connexion&action=connexion">Connexion</a>
-        		</li>
-        		<li class="nav-item">
-          			<a class="nav-link" href="index.php?uc=connection&action=inscription">Inscription</a>
-        		</li>
+        		<?php if(empty($_SESSION)){ ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Planning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?uc=connexion&action=connexion">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?uc=connection&action=inscription">Inscription</a>
+                    </li>
+                <?php }else{ ?>
+                <?php if($_SESSION['Id_profil']=="Administrateur"){ ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?uc=spectacle&action=viewSpectacle">Spectacle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?uc=Profil&action=Profil">Seance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?uc=Reservation&action=Reservation">Chemain</a>
+                    </li>   
+
+                    <?php }else{ ?>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Planning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?uc=profil&action=viewProfil">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?uc=Reservation&action=Reservation">Reservation</a>
+                    </li>   
+                <?php } ?>
+                    
+        <?php } ?>
       	</ul>
     </nav>
 </header>

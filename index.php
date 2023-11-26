@@ -5,7 +5,7 @@ session_start();
 require_once("util/class.puyDuFou.inc.php");
 $pdo = PDOpuyDuFou::getPDOpuyDuFou();
 
-include("vues/v_navBar.php") ;
+include("vues/v_navBar.php");
 
 if(!isset($_REQUEST['uc']))
      $uc = 'accueil';
@@ -19,9 +19,15 @@ switch($uc)
 	case 'gestionInscription' :
 		//{include("controleurs/c_gestionInscription.php");break;}
 	case 'profil' :
-		//{ include("controleurs/c_profil.php");break; }
+		{ include("controleurs/c_profil.php");break; }
 	case 'connexion' :
 		{ include("controleurs/c_connexion.php");break; }
+	case 'chemain' :
+		//{ include("controleurs/c_chemain.php");break; }
+	case 'seance' :
+		//{ include("controleurs/c_seance.php");break; }
+	case 'spectacle' :
+		{ include("controleurs/c_spectacle.php");break; }
 }
 include("vues/v_footer.php") ;
 ?>

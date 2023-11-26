@@ -14,7 +14,7 @@ switch($action)
 		if(empty($_POST['mailU'])){$adresse_mail='';}else{$adresse_mail=$_POST['mailU'];}
 		if(empty($_POST['mdpU'])){$mdp='';}else{$mdp=$_POST['mdpU'];}
 
-		$leClient=$pdo->getInformationsConnexion($adresse_mail,$mdp);
+		$leClient=$pdo->getInfoConnexion($adresse_mail,$mdp);
 
 		if (empty($leClient)){
 			include("vues/v_alertConnection.php");
@@ -27,19 +27,13 @@ switch($action)
 
 			if($leClient['is_admin'] == '1')
 			{
-				$_SESSION['idClient']="Administrateur";
+				$_SESSION['Id_profil']="Administrateur";
 				$_SESSION['nomClient']=NULL;
 				$_SESSION['prenomClient']="Administrateur";
 			}
-			include("vues/v_mentionLegal.php");
+			include("vues/v_accueil.php");
 			break;
 		}	
 	}
-	case 'mentionsLegales':
-	{	
-		include("vues/v_mentionLegal.php");
-		break;
-	}
-	
 }
 

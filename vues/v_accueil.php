@@ -29,7 +29,6 @@
   h6 {
     color: #FFF;
     text-align: center;
-    font-family: Lexend;
     font-size: 64px;
     font-weight: 400;
     position: absolute;
@@ -48,7 +47,6 @@
 
   h4 {
     color: #000;
-    font-family: Lexend;
     font-size: 64px;
     font-style: normal;
     font-weight: 400;
@@ -60,7 +58,6 @@
 
   h3 {
     color: #FFF;
-    font-family: Lexend;
     font-size: 32px;
     font-style: normal;
     font-weight: 300;
@@ -68,11 +65,11 @@
     position: absolute;
     top: 30%;
     -webkit-text-stroke: 1px black;
+
   }
 
   .titre {
     color: #FFF;
-    font-family: Lexend;
     font-size: 64px;
     font-style: normal;
     font-weight: 700;
