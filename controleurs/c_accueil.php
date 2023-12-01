@@ -1,9 +1,10 @@
 <?php
 // $action : variable d'aiguillage
 if(!isset($_REQUEST['action']))
-     $action = 'accueilPage';
+{$action = 'accueilPage';}   
 else
-	$action = $_REQUEST['action'];
+{$action = $_REQUEST['action'];}
+	
 
 switch($action)
 {

@@ -1,12 +1,12 @@
 <?php
 // $action : variable d'aiguillage
-$action = 'accueilPage';
-
+$action = $_REQUEST['action'];
 switch($action)
 {
-	case ('viewSpectacle') :
+	case ('viewPlanning') :
 	{
-		include("vues/v_accueil.php");
+		$lesSpectacle= $pdo->getLesSpectacle();
+		include("vues/v_viewPlanning.php");
 		break;
 	}
 	case 'contact':
@@ -21,4 +21,3 @@ switch($action)
 	}
 	
 }
-

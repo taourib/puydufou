@@ -37,7 +37,7 @@
 
                     <?php }else{ ?>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Planning</a>
+                        <a class="nav-link" href="index.php?uc=planning&action=viewPlanning">Planning</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?uc=profil&action=viewProfil">Profil</a>
