@@ -106,6 +106,10 @@ border-bottom: 1px solid black;
     transition: background-color 0.5s, color 1.0s;
     font-size: medium;
 }
+
+.nav-link:hover{
+    background-color: red;
+}
 body{
   background:var(--second-color);
 }
