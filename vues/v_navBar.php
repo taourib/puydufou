@@ -103,12 +103,13 @@ border-bottom: 1px solid black;
     text-decoration: none;
     border-radius: 50px;
     background-color: #F0F2EF;
-    transition: background-color 0.5s, color 1.0s;
+    transition: background-color 0.3s, color 1.0s;
     font-size: medium;
 }
 
 .nav-link:hover{
     background-color: red;
+    color: white;
 }
 body{
   background:var(--second-color);
