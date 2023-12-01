@@ -21,7 +21,7 @@
                         <a class="nav-link" href="index.php?uc=connexion&action=connexion">Connexion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?uc=connection&action=inscription">Inscription</a>
+                        <a class="nav-link" href="index.php?uc=connexion&action=inscription">Inscription</a>
                     </li>
                 <?php }else{ ?>
                 <?php if($_SESSION['Id_profil']=="Administrateur"){ ?>
