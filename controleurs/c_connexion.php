@@ -35,5 +35,26 @@ switch($action)
 			break;
 		}	
 	}
+
+	case 'inscription':
+	{
+		include("vues/v_champInscription.php");
+		break;
+	}
+	
+	case 'confirmInscription':
+		{
+		$nomClient=$_POST['nomClient'];
+		$prenomClient=$_POST['prenomClient'];
+		$mailClient=$_POST['mailClient'];
+		$mdpClient=$_POST['mdpClient'];
+
+
+		$pdo->ajouterClient($nomClient,$prenomClient,$mailClient,$mdpClient);
+
+		include("vues/v_accueil.php");
+		break;
+		}
 }
+
 

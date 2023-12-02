@@ -21,7 +21,7 @@
                         <a class="nav-link" href="index.php?uc=connexion&action=connexion">Connexion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?uc=connection&action=inscription">Inscription</a>
+                        <a class="nav-link" href="index.php?uc=connexion&action=inscription">Inscription</a>
                     </li>
                 <?php }else{ ?>
                 <?php if($_SESSION['Id_profil']=="Administrateur"){ ?>
@@ -103,8 +103,13 @@ border-bottom: 1px solid black;
     text-decoration: none;
     border-radius: 50px;
     background-color: #F0F2EF;
-    transition: background-color 0.5s, color 1.0s;
+    transition: background-color 0.3s, color 1.0s;
     font-size: medium;
+}
+
+.nav-link:hover{
+    background-color: red;
+    color: white;
 }
 body{
   background:var(--second-color);

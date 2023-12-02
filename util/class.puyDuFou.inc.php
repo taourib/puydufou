@@ -1,29 +1,29 @@
 <?php
 class PDOpuyDuFou
-{   		
-      	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=puydufou';   		
-      	private static $user='root' ;    		
-      	private static $mdp='' ;	
-		private static $monPdo;
-		private static $monPDOpuyDuFou = null;
+{
+	private static $serveur = 'mysql:host=localhost';
+	private static $bdd = 'dbname=puydufou';
+	private static $user = 'root';
+	private static $mdp = 'root';
+	private static $monPdo;
+	private static $monPDOpuyDuFou = null;
 
-        private function __construct()
+	private function __construct()
 	{
-        PDOpuyDuFou::$monPdo = new PDO(PDOpuyDuFou::$serveur.';'.PDOpuyDuFou::$bdd, PDOpuyDuFou::$user, PDOpuyDuFou::$mdp); 
-        PDOpuyDuFou::$monPdo->query("SET CHARACTER SET utf8");
+		PDOpuyDuFou::$monPdo = new PDO(PDOpuyDuFou::$serveur . ';' . PDOpuyDuFou::$bdd, PDOpuyDuFou::$user, PDOpuyDuFou::$mdp);
+		PDOpuyDuFou::$monPdo->query("SET CHARACTER SET utf8");
 	}
-	public function _destruct(){
+	public function _destruct()
+	{
 		PDOpuyDuFou::$monPdo = null;
 	}
 
 	public  static function getPDOpuyDuFou()
 	{
-		if(PDOpuyDuFou::$monPDOpuyDuFou == null)
-		{
-			PDOpuyDuFou::$monPDOpuyDuFou= new PDOpuyDuFou();
+		if (PDOpuyDuFou::$monPDOpuyDuFou == null) {
+			PDOpuyDuFou::$monPDOpuyDuFou = new PDOpuyDuFou();
 		}
-		return PDOpuyDuFou::$monPDOpuyDuFou;  
+		return PDOpuyDuFou::$monPDOpuyDuFou;
 	}
 
 	public function getLesSpectacle()
@@ -42,31 +42,31 @@ class PDOpuyDuFou
 		return $lesLignes;
 	}
 
-	public function getInfoConnexion($adresse_mail,$mdp)
+	public function getInfoConnexion($adresse_mail, $mdp)
 	{
 		$req = "select Id_profil, nom, prenom, is_admin from profil where mdp = '$mdp' and adresse_mail = '$adresse_mail'";
 		$res = PDOpuyDuFou::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
-	}	
+	}
 
 	public function getInfoMail($Id_profil)
 	{
 		$req = "SELECT adresse_mail FROM profil WHERE Id_profil = '$Id_profil'";
 		$res = PDOpuyDuFou::$monPdo->query($req);
 		$ligne = $res->fetch(PDO::FETCH_ASSOC);
-    	return $ligne['adresse_mail'];
-	}	
+		return $ligne['adresse_mail'];
+	}
 
 	public function getInfoMdp($Id_profil)
 	{
 		$req = "SELECT mdp FROM profil WHERE Id_profil = '$Id_profil'";
 		$res = PDOpuyDuFou::$monPdo->query($req);
 		$ligne = $res->fetch(PDO::FETCH_ASSOC);
-    	return $ligne['mdp'];
-	}	
+		return $ligne['mdp'];
+	}
 
-	public function modifProfil($Id_profil,$Nom,$Prenom,$mdpN,$Mail)
+	public function modifProfil($Id_profil, $Nom, $Prenom, $mdpN, $Mail)
 	{
 		$req = "UPDATE profil SET nom = '$Nom', prenom = '$Prenom', mdp = '$mdpN', adresse_mail = '$Mail' WHERE Id_profil = '$Id_profil'";
 		$res = PDOpuyDuFou::$monPdo->exec($req);
@@ -88,7 +88,17 @@ class PDOpuyDuFou
 		$req = "DELETE FROM `spectacle` where Id_spectacle='$Id_spectacle'";
 		$res = PDOpuyDuFou::$monPdo->exec($req);
 	}
+	public function ajouterClient($nomClient, $prenomClient, $mailClient, $mdpClient)
+	{
+		$req = "INSERT INTO profil (nom, prenom, adresse_mail, mdp) VALUES (:nom, :prenom, :mail, :mdp)";
+
+		$res = PDOpuyDuFou::$monPdo->prepare($req);
+
+		$res->bindParam(':nom', $nomClient);
+		$res->bindParam(':prenom', $prenomClient);
+		$res->bindParam(':mail', $mailClient);
+		$res->bindParam(':mdp', $mdpClient);
+
+		$res->execute();
+	}
 }
-
-
-
