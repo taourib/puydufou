@@ -26,8 +26,6 @@ switch($uc)
 		//{ include("controleurs/c_chemain.php");break; }
 	case 'seance' :
 		//{ include("controleurs/c_seance.php");break; }
-	case 'spectacle' :
-		{ include("controleurs/c_spectacle.php");break; }
 	case 'planning' :
 		{ include("controleurs/c_planning.php");break; }
 }
