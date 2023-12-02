@@ -26,13 +26,13 @@
                 <?php }else{ ?>
                 <?php if($_SESSION['Id_profil']=="Administrateur"){ ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?uc=spectacle&action=viewSpectacle">Spectacle</a>
+                        <a class="nav-link" href="index.php?uc=planning&action=viewPlanning">Planning</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?uc=Profil&action=Profil">Seance</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?uc=Reservation&action=Reservation">Chemain</a>
+                        <a class="nav-link" href="index.php?uc=Reservation&action=Reservation">Chemin</a>
                     </li>   
 
                     <?php }else{ ?>

@@ -28,7 +28,7 @@ class PDOpuyDuFou
 
 	public function getLesSpectacle()
 	{
-		$req = "select Id_spectacle, libelle, tps_spectacle from spectacle";
+		$req = "select Id_spectacle, libelle, tps_spectacle from spectacle where Id_spectacle != 0";
 		$res = PDOpuyDuFou::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
@@ -69,6 +69,23 @@ class PDOpuyDuFou
 	public function modifProfil($Id_profil,$Nom,$Prenom,$mdpN,$Mail)
 	{
 		$req = "UPDATE profil SET nom = '$Nom', prenom = '$Prenom', mdp = '$mdpN', adresse_mail = '$Mail' WHERE Id_profil = '$Id_profil'";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
+
+	public function delEtapeBySpectacle($Id_spectacle)
+	{
+		$req = "DELETE FROM `etape` where Id_spectacle='$Id_spectacle'";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
+
+	public function delSeanceBySpectacle($Id_spectacle)
+	{
+		$req = "DELETE FROM `seance` where Id_spectacle='$Id_spectacle'";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
+	public function delSpectacleBySpectacle($Id_spectacle)
+	{
+		$req = "DELETE FROM `spectacle` where Id_spectacle='$Id_spectacle'";
 		$res = PDOpuyDuFou::$monPdo->exec($req);
 	}
 }
