@@ -28,7 +28,7 @@ switch($action)
 			if($leClient['is_admin'] == '1')
 			{
 				$_SESSION['Id_profil']="Administrateur";
-				$_SESSION['nomClient']=NULL;
+				$_SESSION['nomClient']='Administrateur';
 				$_SESSION['prenomClient']="Administrateur";
 			}
 			include("vues/v_accueil.php");

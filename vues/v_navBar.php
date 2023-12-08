@@ -15,7 +15,7 @@
         	<a href="index.php?uc=accueil&action=accueilPage" class="icon"><img class="logo" src="images/logo.svg"></a>
         		<?php if(empty($_SESSION)){ ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Planning</a>
+                        <a class="nav-link" href="index.php?uc=planning&action=viewPlanning">Planning</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?uc=connexion&action=connexion">Connexion</a>
@@ -29,7 +29,7 @@
                         <a class="nav-link" href="index.php?uc=planning&action=viewPlanning">Planning</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?uc=Profil&action=Profil">Seance</a>
+                        <a class="nav-link" href="index.php?uc=profil&action=viewProfil">Profil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?uc=Reservation&action=Reservation">Chemin</a>

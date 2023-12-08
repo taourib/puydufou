@@ -4,7 +4,7 @@ class PDOpuyDuFou
 	private static $serveur = 'mysql:host=localhost';
 	private static $bdd = 'dbname=puydufou';
 	private static $user = 'root';
-	private static $mdp = 'root';
+	private static $mdp = '';
 	private static $monPdo;
 	private static $monPDOpuyDuFou = null;
 
@@ -83,11 +83,28 @@ class PDOpuyDuFou
 		$req = "DELETE FROM `seance` where Id_spectacle='$Id_spectacle'";
 		$res = PDOpuyDuFou::$monPdo->exec($req);
 	}
+	public function delTrajetBySpectacle($Id_spectacle)
+	{
+		$req = "DELETE FROM `trajet` where Id_spectacle='$Id_spectacle'or Id_spectacle_1='$Id_spectacle' ";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
+	public function delSelectionBySpectacle($Id_spectacle)
+	{
+		$req = "DELETE FROM `selection` where Id_spectacle='$Id_spectacle'";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
+	public function delProgrammeBySpectacle($Id_spectacle)
+	{
+		$req = "DELETE FROM `programme` where Id_spectacle='$Id_spectacle'";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
 	public function delSpectacleBySpectacle($Id_spectacle)
 	{
 		$req = "DELETE FROM `spectacle` where Id_spectacle='$Id_spectacle'";
 		$res = PDOpuyDuFou::$monPdo->exec($req);
 	}
+	
+
 	public function ajouterClient($nomClient, $prenomClient, $mailClient, $mdpClient)
 	{
 		$req = "INSERT INTO profil (nom, prenom, adresse_mail, mdp) VALUES (:nom, :prenom, :mail, :mdp)";
