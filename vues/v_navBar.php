@@ -32,7 +32,7 @@
                         <a class="nav-link" href="index.php?uc=profil&action=viewProfil">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?uc=Reservation&action=Reservation">Chemin</a>
+                        <a class="nav-link" href="index.php?uc=chemin&action=chemin">Chemin</a>
                     </li>   
 
                     <?php }else{ ?>

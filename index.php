@@ -1,6 +1,7 @@
 <?php
 // création d'une session
 session_start();
+include("vues/v_entete.php") ;
 // inclusion en une seule fois du fichier des fonctions et du modèle
 require_once("util/class.puyDuFou.inc.php");
 $pdo = PDOpuyDuFou::getPDOpuyDuFou();
@@ -22,8 +23,8 @@ switch($uc)
 		{ include("controleurs/c_profil.php");break; }
 	case 'connexion' :
 		{ include("controleurs/c_connexion.php");break; }
-	case 'chemain' :
-		//{ include("controleurs/c_chemain.php");break; }
+	case 'chemin' :
+		{ include("controleurs/c_chemin.php");break; }
 	case 'seance' :
 		//{ include("controleurs/c_seance.php");break; }
 	case 'planning' :

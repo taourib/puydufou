@@ -42,6 +42,25 @@ class PDOpuyDuFou
 		return $lesLignes;
 	}
 
+	public function Trajet1avec2($Id_spectacle,$Id_spectacle_1)
+	{
+		$req = "SELECT count(*)as trajet FROM `trajet` WHERE Id_spectacle = $Id_spectacle and Id_spectacle_1 = $Id_spectacle_1  or Id_spectacle = $Id_spectacle_1 and Id_spectacle_1 = $Id_spectacle";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+		$resultat = $res->fetch(PDO::FETCH_ASSOC);
+		return $resultat['trajet'];
+	}
+
+	public function getLesChemin()
+	{
+		$req = "select t.Id_spectacle, t.Id_spectacle_1, t.distance_km_, s.libelle, 
+		(select s.libelle from spectacle s where s.Id_spectacle = t.Id_spectacle_1) as libelle2
+		from trajet t
+		inner join spectacle s on t.Id_spectacle = s.Id_spectacle;";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+
 	public function getInfoConnexion($adresse_mail, $mdp)
 	{
 		$req = "select Id_profil, nom, prenom, is_admin from profil where mdp = '$mdp' and adresse_mail = '$adresse_mail'";
@@ -88,6 +107,12 @@ class PDOpuyDuFou
 		$req = "DELETE FROM `trajet` where Id_spectacle='$Id_spectacle'or Id_spectacle_1='$Id_spectacle' ";
 		$res = PDOpuyDuFou::$monPdo->exec($req);
 	}
+
+	public function delTrajetByDoubleID($Id_spectacle,$Id_spectacle_1)
+	{
+		$req = "DELETE FROM `trajet` where (Id_spectacle='$Id_spectacle'and Id_spectacle_1='$Id_spectacle_1') or (Id_spectacle='$Id_spectacle_1'and Id_spectacle_1='$Id_spectacle') ";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
 	public function delSelectionBySpectacle($Id_spectacle)
 	{
 		$req = "DELETE FROM `selection` where Id_spectacle='$Id_spectacle'";
@@ -103,6 +128,30 @@ class PDOpuyDuFou
 		$req = "DELETE FROM `spectacle` where Id_spectacle='$Id_spectacle'";
 		$res = PDOpuyDuFou::$monPdo->exec($req);
 	}
+
+	public function ajouterTrajet($Id_spectacle, $Id_spectacle_2, $distance)
+	{
+		$req = "INSERT INTO trajet (Id_spectacle, Id_spectacle_1, distance_km_) VALUES (:Id_spectacle, :Id_spectacle_1, :distance_km_)";
+
+		$res = PDOpuyDuFou::$monPdo->prepare($req);
+
+		$res->bindParam(':Id_spectacle', $Id_spectacle);
+		$res->bindParam(':Id_spectacle_1', $Id_spectacle_2);
+		$res->bindParam(':distance_km_', $distance);
+
+		$res->execute();
+	}
+
+	public function modifTrajet($Spectacle_1, $Spectacle_2, $distance, $spectacleOriginelle1, $spectacleOriginelle2)
+	{
+		$req = "UPDATE `trajet` SET Id_spectacle = $Spectacle_1, Id_spectacle_1 = $Spectacle_2, distance_km_ = $distance 
+		WHERE (Id_spectacle = $spectacleOriginelle1 AND Id_spectacle_1 = $spectacleOriginelle2)";
+
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
+
+
+
 	
 
 	public function ajouterClient($nomClient, $prenomClient, $mailClient, $mdpClient)
