@@ -1,4 +1,3 @@
-
 <h2>Profil</h2>
 <div id=container-contact-text>
   <form action="index.php?uc=profil&action=traitChangeProfil" method="POST">
@@ -12,7 +11,7 @@
   <input type="password" name="mdpA" placeholder="Entrer ancient votre mot de passe" /></br>
   <a>nouveau mot de passe :</a></br>
   <input type="password" name="mdpN" placeholder="Entrer votre nouveau mot de passe" /></br>
-  <input type="submit" value="modifier" /> <a href="index.php">Annuler</a>
+  <input type="submit" value="modifier" class="button" /> <a href="index.php" >Annuler</a>
   </form></br>
   <a href="index.php?uc=profil&action=deconnexion">déconnexion</a>
 </div>

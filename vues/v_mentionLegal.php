@@ -48,15 +48,3 @@
 
   </div>
 </div>
-
-<style>
-#mentionLegal{
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  align-self: stretch;
-  padding: 10%; 
-  }
-</style>

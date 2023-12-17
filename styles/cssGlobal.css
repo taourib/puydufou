@@ -1,0 +1,352 @@
+/* Global variables */
+:root {
+    /* Colors */
+    --main-color: #EF4142;
+    --second-color: #F8E1B1;
+    --text-base: 1.2em;
+    --text-xl: 1.625rem;
+    --text-2xl: 2.125rem;
+    --text-3xl: 2.625rem;
+    --text-4xl: 3.5rem;
+    --text-5xl: 4.5rem;
+}
+
+* {
+	text-decoration: none;
+    font-family: 'Lexend', 'Inter', sans-serif;
+}
+
+/* Typography */
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+h5 { font-size: var(--text-xl); }
+a  { font-size: var(--text-base); }
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Open+Sans&display=swap');
+
+/* Body */
+html{
+	height: 100%;
+}
+body {
+    margin: 0;
+	min-height: 100%;
+    background: var(--second-color);
+}
+main{
+	padding: 6% 0% 0% 0%;
+	min-height: 76.7%;
+}
+/* Button */
+.button {
+    width: 140px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+  
+.button:hover {
+    background-color: var(--main-color);
+    box-shadow: 0px 15px 20px rgba(46, var(--main-color));
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+/* Add Trajet */
+#add_trajet {
+    display: flex;
+	justify-content: center;
+    padding: 0 0 3rem 0;
+}
+
+#add_trajet fieldset legend {
+    font-size: 1.4rem;
+}
+
+#add_trajet fieldset form {
+    font-size: 1.4rem;
+    text-align: right;
+}
+
+/* Planning */
+#planning {
+    padding: 100px;
+    display: inline-block;
+}
+  
+#planning li {
+    list-style-type: none;
+    list-style-image: none;
+    display: inline-block; 
+    width: auto;
+    text-align: center;
+    height: 20px;
+    font: 1em "Trebuchet MS", Arial, sans-serif;
+}
+
+#planning ul {
+    box-shadow: 0px 0px 22px -5px rgba(0,0,0,0.75);
+    margin: 20px;
+}
+
+.affichagePlanning {
+    background: white;
+    padding: 20px;
+    color: white;
+}
+
+.affichagePlanning li {
+    background: #FFFFFF;
+    padding: 5px;
+    color: black;
+    margin: 0;
+}
+
+.affichagePlanning li a {
+    background: #e74c3c;
+    color: white;
+    padding: 7px;
+}
+
+.affichagePlanning .valider {
+    background: #2ecc71;
+}
+
+/* Planning */
+#inscrire {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#inscrire legend {
+    font-size: 1.5rem;
+}
+
+#inscrire form {
+    font-size: 1.4rem;
+    text-align: right;
+}
+
+#inscrire input {
+    margin-bottom: 1%;
+}
+
+/* mentionLegal */
+
+#mentionLegal{
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	align-self: stretch;
+	padding: 10%; 
+	}
+
+/* Navbar */
+.navbar-nav {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 90px;
+    border-bottom: 1px solid black;
+}
+  
+.nav-item {
+    float: right;
+    margin-left: 2%;
+    margin-top: 15px;
+}
+
+.icon {
+    float: left;
+    margin-left: 2%;
+    margin-top: 6px;
+}
+  
+.logo {
+    width: 200px; 
+    height: 80px;
+    margin-top: 0; 
+}
+
+.nav-link {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    border-radius: 50px;
+    background-color: #F0F2EF;
+    transition: background-color 0.3s, color 1.0s;
+    font-size: medium;
+}
+
+.nav-link:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: #F0F2EF;
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 3.33em;
+    margin-top: auto;
+}
+
+footer .right-buttons {
+    display: flex;
+    right: auto;
+    justify-content: center;
+    color: #000;
+}
+
+/* Connexion */
+#connexion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#connexion legend {
+    font-size: 1.5rem;
+}
+
+#connexion form {
+    font-size: 1.4rem;
+    text-align: right;
+    width: 500px;
+}
+
+#connexion input {
+    margin: 2%;
+    width: 40%;
+}
+
+/* Contact */
+#contac {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;  
+    display: flex;
+    justify-content: center;
+    align-self: stretch;
+    padding: 50px;
+}
+
+#contac #container-contact-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+#contac .contact-text-fields {
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    border: 1px solid #000;
+    background: #FFF;
+    box-shadow: 32px 16px 8px 0px rgba(0, 0, 0, 0.25);
+    padding: 1em;
+}
+
+/* Affichage Liste */
+#AffichageListe {
+    padding: 100px;
+    display: inline-block;
+}
+
+#AffichageListe li {
+    list-style-type: none;
+    list-style-image: none;
+    display: inline-block; 
+    width: auto;
+    text-align: center;
+    height: 20px;
+    font: 1em "Trebuchet MS", Arial, sans-serif;
+}
+
+#AffichageListe ul {
+    box-shadow: 0px 0px 22px -5px rgba(0,0,0,0.75);
+    margin: 20px;
+}
+
+.affichageListe {
+    background: white;
+    padding: 20px;
+    color: white;
+}
+
+.affichageListe li {
+    background: #FFFFFF;
+    padding: 5px;
+    color: black;
+    margin: 0;
+}
+
+.affichageListe li a {
+    background: #e74c3c;
+    text-decoration: none;
+    color: white;
+    padding: 7px;
+}
+
+.affichageListe .valider {
+    background: #2ecc71;
+}
+/*table */
+
+.table{
+	width: 80%;
+	padding: 0% 10%;	
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+th, td {
+	padding: 12px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+tr:hover {
+	background-color: #f5f5f5;
+}

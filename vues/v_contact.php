@@ -17,35 +17,3 @@
 
 </div>
 
-<style>
-#contac{
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;  
-  display: flex;
-  justify-content: center;
-  align-self: stretch;
-  padding :50px;
-  }
-
-#container-contact-text
-{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-}
-.contact-text-fields{
-  border-radius: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  align-self: stretch;
-  border: 1px solid #000;
-  background: #FFF;
-  box-shadow: 32px 16px 8px 0px rgba(0, 0, 0, 0.25);
-  padding: 1em;
-}
-</style>

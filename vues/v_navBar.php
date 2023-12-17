@@ -21,6 +21,9 @@
                     <a class="nav-link" href="index.php?uc=profil&action=viewProfil">Profil</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="index.php?uc=parc&action=viewParc">Parc</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="index.php?uc=chemin&action=chemin">Chemin</a>
                 </li>   
 
@@ -39,68 +42,3 @@
       	</ul>
     </nav>
 </header>
-</body>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Open+Sans&display=swap');
-*{
-    font-family: 'Inter', sans-serif;
-    font-family: 'Open Sans', sans-serif;
-}
-
-body{
-    margin: 0;
-}
-
-.navbar-nav {
-position: fixed;
-z-index: 1;
-top: 0;
-width: 100%;
-list-style-type: none;
-margin: 0;
-padding: 0;
-overflow: hidden;
-height: 90px;
-border-bottom: 1px solid black;
-}
-  
-.nav-item{
-    float: right;
-    margin-left: 2%;
-    margin-top: 15px;
-}
-
-.icon{
-    float: left;
-    margin-left: 2%;
-    margin-top: 6px;
-}
-  
-.logo{
-    width: 200px; 
-    height: 80px;
-    margin-top: 0; 
-}
-
-.nav-link {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    border-radius: 50px;
-    background-color: #F0F2EF;
-    transition: background-color 0.3s, color 1.0s;
-    font-size: medium;
-}
-
-.nav-link:hover{
-    background-color: red;
-    color: white;
-}
-body{
-  background:var(--second-color);
-}
-</style>
-</html>

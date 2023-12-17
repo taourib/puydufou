@@ -6,6 +6,5 @@
 <title>PuyDuFou</title>
 <meta http-equiv="Content-Language" content="fr">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="styles/global.css" rel="stylesheet" type="text/css">
+<link href="styles/cssGlobal.css" rel="stylesheet" type="text/css">
 </head>
-<body >

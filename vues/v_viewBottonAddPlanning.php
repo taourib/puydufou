@@ -1,1 +1,1 @@
-<button class="bouton" href="">Ajouter un Spectacle </button>
+<a href="index.php?uc=planning&action=addSpectacle">Ajouter un Spectacle</a>

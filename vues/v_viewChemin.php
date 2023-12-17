@@ -1,4 +1,4 @@
-<div id="planning">
+<div id="AffichageListe">
     <?php
     foreach ($lesChemin as $unChemin) {
         $Id_spectacle = $unChemin['Id_spectacle'];
@@ -7,7 +7,7 @@
         $libelle = $unChemin['libelle'];
         $libelle2 = $unChemin['libelle2'];
         ?>
-        <ul class="affichagePlanning">
+        <ul class="affichageListe">
             <li>Spectacle 1: <?php echo $libelle ?></li>
             <li>Spectacle 2: <?php echo $libelle2 ?></li>
             <li>Distance: <?php echo $distance_km_ ?></li>
@@ -17,63 +17,19 @@
                         <img src="images/pen-to-square-solid.svg" alt="modif spectacle">
                     </a>
                 </li>
-                <li>
-                    <a href="index.php?uc=chemin&spectacle=<?php echo $Id_spectacle ?>&spectacle2=<?php echo $Id_spectacle_1 ?>&action=supprChemin">
-                        <img src="images/trash-solid.svg" alt="suppr spectacle">
-                    </a>
-                </li>
-            <?php } ?>
+                <?php if($Id_spectacle != 0)
+                {?>
+                    <li>
+                        <a href="index.php?uc=chemin&spectacle=<?php echo $Id_spectacle ?>&spectacle2=<?php echo $Id_spectacle_1 ?>&action=supprChemin">
+                            <img src="images/trash-solid.svg" alt="suppr spectacle">
+                        </a>
+                    </li>
+              <?php  
+                }                    
+            } ?>
         </ul>
     <?php
     }
     ?>
 </div>
-
-<style>
-	
-#planning{
-  padding: 100px;
-	display: inline-block;
-}
-
-#planning li{
-	list-style-type: none;
-	list-style-image:none;
-	display:inline-block; 
-	width: auto;
-    text-align:center;
-    height:20px;
-    font: 1em "Trebuchet MS",Arial,sans-serif ;
-}
-
-#planning ul{
-	box-shadow: 0px 0px 22px -5px rgba(0,0,0,0.75);
-	margin: 20px;
-}
-.affichagePlanning {
-	background: white ;
-	padding: 20px;
-	color: white;
-	text-decoration: none;
-}
-
-.affichagePlanning li {
-	background: #FFFFFF ;
-	padding: 5px;
-	color: black;
-	text-decoration: none;
-	margin: 0;
-}
-
-.affichagePlanning li a {
-	background: #e74c3c;
-    text-decoration: none;
-    color: white;
-    padding: 7px;
-}
-
-.affichagePlanning .valider{
-	background: #2ecc71;
-}
-</style>
 

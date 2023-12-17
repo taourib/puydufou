@@ -19,45 +19,7 @@
 					<label>Mot de passe : </label>
 					<input type="password" name="mdpClient" required>
 				</p>
-				<input type="submit" value="Valider">
+				<input type="submit" value="Valider" class="button">
 			</form>
 		</fieldset>
 	</div>
-
-
-
-
-	<style>
-		#inscrire {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-		}
-
-		legend {
-			font-size: 1.5rem;
-		}
-
-		form {
-			font-size: 1.4rem;
-			text-align: right;
-		}
-
-		input {
-			margin-bottom: 1%;
-		}
-
-		input[type="submit"] {
-			transition: background-color 0.3s, color 1.0s;
-			width: 25%;
-   			margin-right: 11%;
-
-		}
-
-		input[type="submit"]:hover {
-			background-color: red;
-			color: white;
-			/* Change text color on hover, adjust as needed */
-		}
-	</style>

@@ -1,8 +1,8 @@
-<link href="footer.css" rel="stylesheet" type="text/css" />
 <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
 <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
 <link href='https://unpkg.com/css.gg@2.0.0/icons/css/twitter.css' rel='stylesheet'>
 <link href='https://unpkg.com/css.gg@2.0.0/icons/css/youtube.css' rel='stylesheet'>
+
 
 <footer>
     <a class="right-buttons" href="index.php?uc=accueil&action=contact">Contact</a>
@@ -13,24 +13,3 @@
     <a class="right-buttons" href="https://www.youtube.com/user/puydufou" target="_blank"><i class="gg-youtube"></i></a>
 </footer>
 
-<style>
-footer {
-    background-color: #F0F2EF;
-    width: 100%;
-    height: 8%;
-    position: fixed;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    gap: 3.33em; 
-    bottom:0;  /* on le colle en bas */
-}
-.right-buttons{
-    display: flex;
-    right: auto;
-    justify-content: center;
-    color: #000;
-    text-decoration:none;
-}
-</style>
