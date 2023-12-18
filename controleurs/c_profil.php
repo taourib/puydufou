@@ -1,23 +1,25 @@
 <?php
 // $action : variable d'aiguillage
 $action = $_REQUEST['action'];
-if (empty($_SESSION['Id_profil'] and $_SESSION['Id_profil'] !="Administrateur" ))
-{
-	if (empty($_SESSION['Id_profil']))
-	{
-	$prenom = 'NULL';
-	}else
-	{
-	$prenom = $_SESSION['prenomClient'];
-	$Id_profil=$_SESSION['Id_profil'];
+if (empty($_SESSION['Id_profil']) || $_SESSION['Id_profil'] == "Administrateur") {
+    
+	if (empty($_SESSION['Id_profil'])){
+		$prenom = 'NULL';
+		$nom = 'NULL';
+		$email = 'NULL';
+	}else{
+		$nom = "Administrateur";
+		$prenom = "Administrateur";
+		$Id_profil = "Administrateur";
+		$email = "Administrateur";
 	}
-	$nom = 'NULL';
-	$email='NULL';
-}else{
-	$nom = $_SESSION['nomClient'];
-	$prenom = $_SESSION['prenomClient'];
-	$Id_profil=$_SESSION['Id_profil'];
-	$email=$pdo->getInfoMail($Id_profil);
+	
+
+} else {
+    $nom = $_SESSION['nomClient'];
+    $prenom = $_SESSION['prenomClient'];
+    $Id_profil = $_SESSION['Id_profil'];
+    $email = $pdo->getInfoMail($Id_profil);
 }
 
 
@@ -30,7 +32,9 @@ switch($action)
 	}
 	case 'deconnexion':
 	{	
-		session_destroy();	
+		if (!empty($_SESSION)){
+			session_destroy();	
+		}		
 		include("vues/v_accueil.php");
 		break;
 	}
