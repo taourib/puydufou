@@ -31,7 +31,7 @@ switch ($action) {
             $Id_spectacle=$_GET['Id_spectacle'];
                 if(0==$pdo->seanceExisteById_spectacleAndHeure_seanceAndDate_parc($Id_spectacle,$heure_seance,$date_parc)){
                     $newId_seance = intval($pdo->getMaxId_seanceOnSeanceById_spectacleAndDate_parc($Id_spectacle,$date_parc))+1;                  
-                    $pdo->ajouterSeance($date_parc, $Id_spectacle, $heure_seance,$immersif,$newId_seance);
+                    $pdo->AddSeance($date_parc, $Id_spectacle, $heure_seance,$immersif,$newId_seance);
                 }else{
                     ?><a> Il existe déjà une séance pour ce spectacle à cette date et cette heure</a><?php
                 }

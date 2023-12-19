@@ -1,6 +1,6 @@
 <div id="add_trajet">
     <fieldset>
-        <legend>Modif Jour Parc</legend>
+        <legend>Add Jour Parc</legend>
         <form action="index.php?uc=parc&action=traitAddParc" method="post">
             <p>
                 <label>date parc : </label>

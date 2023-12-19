@@ -22,7 +22,7 @@
 
 				</p>
 				<p>
-				<input type="submit" value="Ajouter" class="button">
+				<input type="submit" value="Modifier" class="button">
 			</form>
 		</fieldset>
 	</div>

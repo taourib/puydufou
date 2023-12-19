@@ -1,6 +1,6 @@
 <div id="add_trajet">
     <fieldset>
-        <legend>Modif trajet</legend>
+        <legend>Modif Spectacle</legend>
         <form action="index.php?uc=planning&action=traitModifSpectacle" method="post">
             <p>
                 <label>Spectacle  : </label>

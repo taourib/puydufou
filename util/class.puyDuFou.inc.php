@@ -555,5 +555,17 @@ public function delFromByDate_parc($From,$date)
 	}
 
 
-	
+	public function AddSeance($date_parc, $Id_spectacle, $heure_seance,$immersif,$newId_seance)
+	{
+		$req = "INSERT INTO seance (date_parc, Id_spectacle,heure_seance,Id_seance,immersif) VALUES (:date_parc, :Id_spectacle,:heure_seance,:Id_seance,:immersif)";
+
+		$res = PDOpuyDuFou::$monPdo->prepare($req);
+
+		$res->bindParam(':date_parc', $date_parc);
+		$res->bindParam(':Id_spectacle', $Id_spectacle);
+		$res->bindParam(':heure_seance', $heure_seance);
+		$res->bindParam(':Id_seance', $newId_seance);
+		$res->bindParam(':immersif', $immersif);
+		$res->execute();
+	}
 }
