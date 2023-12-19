@@ -31,7 +31,10 @@ switch($action)
 				$_SESSION['nomClient']='Administrateur';
 				$_SESSION['prenomClient']="Administrateur";
 			}
-			include("vues/v_accueil.php");
+			echo ("<SCRIPT LANGUAGE='JavaScript'>
+                    window.alert('Vous avez bien été connecté')
+                    window.location.href='index.php';
+                    </SCRIPT>");
 			break;
 		}	
 	}

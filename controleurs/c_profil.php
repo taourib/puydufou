@@ -35,7 +35,10 @@ switch($action)
 		if (!empty($_SESSION)){
 			session_destroy();	
 		}		
-		include("vues/v_accueil.php");
+		echo ("<SCRIPT LANGUAGE='JavaScript'>
+                    window.alert('Vous avez bien été déconnecté')
+                    window.location.href='index.php';
+                    </SCRIPT>");
 		break;
 	}
 	case 'traitChangeProfil':

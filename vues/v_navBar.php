@@ -35,7 +35,7 @@
                     <a class="nav-link" href="index.php?uc=profil&action=viewProfil">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?uc=Reservation&action=Reservation">Reservation</a>
+                    <a class="nav-link" href="index.php?uc=Parcours&action=Visite">Reservation</a>
                 </li>   
             <?php } ?>
         <?php } ?>

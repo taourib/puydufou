@@ -29,6 +29,8 @@ switch($uc)
 		{ include("controleurs/c_parc.php");break; }
 	case 'seance' :
 		{ include("controleurs/c_seance.php");break; }
+	case 'Parcours' :
+		{ include("controleurs/c_parcours.php");break; }
 }
 
 ?></main><?php

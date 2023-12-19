@@ -238,14 +238,14 @@ class PDOpuyDuFou
 		$req = "DELETE FROM `programme` where Id_spectacle='$Id_spectacle'";
 		$res = PDOpuyDuFou::$monPdo->exec($req);
 	}
-	
+
 	public function delSpectacleBySpectacle($Id_spectacle)
 	{
 		$req = "DELETE FROM `spectacle` where Id_spectacle='$Id_spectacle'";
 		$res = PDOpuyDuFou::$monPdo->exec($req);
 	}
-
-	public function delFromByDate_parc($From,$date)
+	
+public function delFromByDate_parc($From,$date)
 	{
 		$req = "DELETE FROM `$From` where date_parc='$date'";
 		$res = PDOpuyDuFou::$monPdo->exec($req);
@@ -327,6 +327,153 @@ class PDOpuyDuFou
 		$res->execute();
 	}
 
+	public function getvitessevisiteur($idvisiteur){
+		$req = "SELECT vitesse from visiteur where Id_visiteur =" . $idvisiteur.";";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+		$vitesse = $res->fetch();
+		return $vitesse['vitesse'];
+	}
+
+	public function getheureparc($datesaisie){
+		$req = "SELECT heure_ouverture, heure_fermeture from parc where date_parc='".$datesaisie."'";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+		$planning = $res->fetch();
+		return $planning;
+	}
+
+	public function delparcours($idvisiteur, $datesaisie, $idvisite){
+		$req="delete from etape where Id_Visiteur =" . $idvisiteur." and date_parc='".$datesaisie."' and Id_visite=".$idvisite." ;";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+
+		$req="delete from parcours where Id_Visiteur =".$idvisiteur." and date_parc='".$datesaisie."' and Id_visite=".$idvisite.";";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
+
+	public function distancespec(){
+
+		$req = 'SELECT Id_Spectacle, Id_Spectacle_1, distance_km_ from trajet';
+		$res = PDOpuyDuFou::$monPdo->query($req);
+		$lesDistances = $res->fetchAll();
+		return $lesDistances;
+	}
+
+	public function selectionspec($datesaisie, $idvisiteur , $idvisite){
+		$req = "SELECT spectacle.Id_Spectacle, tps_spectacle, tps_attente 
+		from selection 
+		inner join spectacle on selection.Id_Spectacle=spectacle.Id_Spectacle 
+		inner join programme on selection.Id_Spectacle=programme.Id_Spectacle 
+		where programme.date_parc= '".$datesaisie."' and selection.date_parc= '".$datesaisie."' and Id_Visiteur =" . $idvisiteur. " and Id_visite='".$idvisite."';";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+		$lesSpectaclesSelectionnes = $res->fetchAll();
+		return $lesSpectaclesSelectionnes;
+	}
+
+	public function premseance($s,$heureparcours,$datesaisie){
+		$req = "SELECT immersif, heure_seance from seance where Id_Spectacle = ".$s." and heure_seance >= '".$heureparcours."' and date_parc = '". $datesaisie ."' order by heure_seance limit 1; ";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+		$seance = $res->fetch();
+		return $seance;
+	}
+
+	public function ajouterparcours($p, $datesaisie, $idvisiteur, $idvisite)
+	{
+		$req = "insert into parcours
+		(Id_parcours, date_parc, Id_visiteur, Id_visite) values
+		(:Id_parcours, :date_parc,:Id_visiteur, :Id_visite)";
+
+		$res = PDOpuyDuFou::$monPdo->prepare($req);
+
+		$res->bindValue (':Id_parcours', $p);
+		$res->bindValue (':date_parc', $datesaisie);
+		$res->bindValue (':Id_visiteur', $idvisiteur);
+		$res->bindValue (':Id_visite', $idvisite);
+
+		$res->execute();
+	}
+
+	public function idseance($tabparcours,$j,$datesaisie){
+		$req = "select Id_seance from seance where Id_Spectacle = ".$tabparcours [$j][0]." and heure_seance ='".$tabparcours [$j][1]."' and date_parc = '". $datesaisie ."';";
+        $res = PDOpuyDuFou::$monPdo->query($req);
+        $id_seance = $res->fetch();
+		return $id_seance;
+	}
+
+	public function ajouterseance($p, $datesaisie, $idvisiteur, $j, $tabparcours, $idvisite, $id_seance)
+	{
+		$req = "insert into etape
+		(date_parc_1, Id_Parcours, date_parc, Id_Visiteur, ordre, chemin, Id_Spectacle,heure_seance, Id_visite, Id_seance)
+		values
+		(:Dateparc_1, :Id_Parcours, :date_parc, :Id_Visiteur, :ordre, :chemin, :Id_Spectacle, :heure_seance, :Id_visite, :Id_seance)";
+
+		$res = PDOpuyDuFou::$monPdo->prepare($req);
+
+		$res->bindValue (':Id_Parcours', $p);
+		$res->bindValue (':date_parc', $datesaisie);
+		$res->bindValue (':Dateparc_1', $datesaisie);
+		$res->bindValue (':Id_Visiteur', $idvisiteur) ;
+		$res->bindValue (':ordre', $j+1);
+		$res->bindValue (':chemin', $tabparcours[$j][2]);
+		$res->bindValue (':Id_Spectacle', $tabparcours[$j][0]);
+		$res->bindValue (':heure_seance', $tabparcours[$j][1]);
+		$res->bindValue (':Id_visite', $idvisite);
+		$res->bindValue (':Id_seance', $id_seance['Id_seance']);
+		$res->execute();
+	}
+
+	public function selectallparcours($datesaisie,$idvisiteur, $idvisite)
+	{
+		$req = "SELECT Id_Parcours from parcours
+        where date_parc='".$datesaisie. "' and Id_Visiteur =".$idvisiteur. " and Id_visite=".$idvisite.";";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+		$lesParcours = $res->fetchAll();
+		return $lesParcours;
+	}
+
+	public function selectalletape($datesaisie,$idvisiteur,$Id_Parcours,$idvisite)
+	{
+		$req = "SELECT ordre, spectacle.Id_Spectacle, spectacle.libelle, etape.heure_seance, chemin, tps_spectacle, tps_attente, immersif 
+        from etape
+        inner join spectacle on etape.Id_Spectacle=spectacle.Id_Spectacle
+        inner join seance on seance.Id_Spectacle=spectacle.Id_Spectacle and
+        etape.heure_seance=seance.heure_seance and etape.date_parc=seance.date_parc inner join programme on spectacle.Id_Spectacle = programme.Id_Spectacle
+        where etape.date_parc='".$datesaisie."' and Id_Visiteur =" . $idvisiteur." and Id_Parcours=".$Id_Parcours." and programme.date_parc='".$datesaisie."' and Id_visite=".$idvisite." order by ordre;";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+		$lesEtapes = $res->fetchAll();
+		return $lesEtapes;
+	}
+
+	public function ajoutervisite($idvisiteur,$datesaisie,$pass,$idvisite)
+	{
+		$req = "insert into visite
+		(Id_visiteur, date_parc, pass, Id_visite) values
+		(:Id_visiteur, :date_parc,:pass, :Id_visite)";
+
+		$res = PDOpuyDuFou::$monPdo->prepare($req);
+
+		$res->bindValue (':Id_visiteur', $idvisiteur);
+		$res->bindValue (':date_parc', $datesaisie);
+		$res->bindValue (':pass', $pass);
+		$res->bindValue (':Id_visite', $idvisite+1);
+
+		$res->execute();
+	}
+
+	public function ajouterselection($idvisiteur,$datesaisie,$spectacleId, $idvisite)
+	{
+		$req = "insert into selection
+		(Id_spectacle, Id_visiteur, date_parc, Id_visite) values
+		(:Id_spectacle, :Id_visiteur,:date_parc, :Id_visite)";
+
+		$res = PDOpuyDuFou::$monPdo->prepare($req);
+
+		$res->bindValue (':Id_spectacle', $spectacleId);
+		$res->bindValue (':Id_visiteur', $idvisiteur);
+		$res->bindValue (':date_parc', $datesaisie);
+		$res->bindValue (':Id_visite', $idvisite);
+
+		$res->execute();
+	}
+
 	public function ajouterSpectacle($titre, $Duree)
 	{
 		$req = "INSERT INTO spectacle (libelle, tps_spectacle) VALUES (:libelle, :tps_spectacle)";
@@ -338,17 +485,75 @@ class PDOpuyDuFou
 		$res->execute();
 	}
 
-	public function ajouterSeance($date_parc, $Id_spectacle, $heure_seance,$immersif,$newId_seance)
+	public function getidvisite($idvisiteur,$datesaisie)
 	{
-		$req = "INSERT INTO seance (date_parc, Id_spectacle,heure_seance,Id_seance,immersif) VALUES (:date_parc, :Id_spectacle,:heure_seance,:Id_seance,:immersif)";
+		$req = "SELECT MAX(Id_visite) AS idvisite 
+        from visite
+		where date_parc='".$datesaisie."' and Id_visiteur =" . $idvisiteur."";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+        $id_visite = $res->fetch();
+		return $id_visite['idvisite'];
+	}
 
+	public function getlesvisites($idvisiteur){
+		$req = "SELECT * 
+        from visite
+		where Id_visiteur =" . $idvisiteur."";
+		$res = PDOpuyDuFou::$monPdo->query($req);
+        $LesVisites = $res->fetchAll();;
+		return $LesVisites;
+	}
+
+	public function delUnparcours($idvisiteur, $datesaisie, $idvisite,$idparcours){
+		$req="delete from etape where Id_Visiteur =" . $idvisiteur." and date_parc='".$datesaisie."' and Id_visite=".$idvisite." and Id_parcours = ".$idparcours." ;";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+
+		$req="delete from parcours where Id_Visiteur =".$idvisiteur." and date_parc='".$datesaisie."' and Id_visite=".$idvisite." and Id_parcours = ".$idparcours.";";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
+
+	public function parcourschoisi($idvisiteur, $datesaisie, $idvisite,$idparcours){
+		$req="delete from etape where Id_Visiteur =" . $idvisiteur." and date_parc ='".$datesaisie."' and Id_visite =".$idvisite." and Id_parcours != ".$idparcours." ;";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+
+		$req="delete from parcours where Id_Visiteur =".$idvisiteur." and date_parc ='".$datesaisie."' and Id_visite =".$idvisite." and Id_parcours != ".$idparcours.";";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+	}
+
+	public function delvisite($idvisite, $idvisiteur, $datesaisie){
+		$req="delete from etape where Id_Visiteur =" . $idvisiteur." and date_parc='".$datesaisie."' and Id_visite=".$idvisite." ;";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+
+		$req="delete from parcours where Id_Visiteur =".$idvisiteur." and date_parc='".$datesaisie."' and Id_visite=".$idvisite.";";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+
+		$req="delete from selection where Id_Visiteur =".$idvisiteur." and date_parc='".$datesaisie."' and Id_visite=".$idvisite.";";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+
+		$req="delete from visite where Id_visiteur =".$idvisiteur." and date_parc='".$datesaisie."' and Id_visite=".$idvisite.";";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+
+	}
+
+	public function modifselection($idvisiteur, $datesaisie, $spectacleId, $idvisite){
+
+		$req="delete from selection where Id_Visiteur =".$idvisiteur." and date_parc='".$datesaisie."' and Id_visite=".$idvisite.";";
+		$res = PDOpuyDuFou::$monPdo->exec($req);
+
+		$req = "insert into selection
+		(Id_spectacle, Id_visiteur, date_parc, Id_visite) values
+		(:Id_spectacle, :Id_visiteur,:date_parc, :Id_visite)";
+	
 		$res = PDOpuyDuFou::$monPdo->prepare($req);
 
-		$res->bindParam(':date_parc', $date_parc);
-		$res->bindParam(':Id_spectacle', $Id_spectacle);
-		$res->bindParam(':heure_seance', $heure_seance);
-		$res->bindParam(':Id_seance', $newId_seance);
-		$res->bindParam(':immersif', $immersif);
+		$res->bindValue (':Id_spectacle', $spectacleId);
+		$res->bindValue (':Id_visiteur', $idvisiteur);
+		$res->bindValue (':date_parc', $datesaisie);
+		$res->bindValue (':Id_visite', $idvisite);
+
 		$res->execute();
 	}
+
+
+	
 }
