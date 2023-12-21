@@ -1,4 +1,4 @@
-	<div id="inscrire">
+	<div id="add_trajet">
 		<fieldset>
 			<legend>Inscription</legend>
 			<form action="index.php?uc=connexion&action=confirmInscription" method="post">

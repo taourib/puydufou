@@ -1,4 +1,4 @@
-<div id='accueil'>
+<div id='accueil' padding = -5% 0% 0% 0%>
   <div class='header'>
     <img src="images/fontaine2.png" alt="Fontaine_devant_un_chateau" style="width: 100%;">
     <h1 class="titre">DES SPECTACLES HORS DU TEMPS</h1>
